@@ -13,8 +13,14 @@
   }
 }
 
+.kart {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  max-height: 80rem;
+  max-width: 30rem;
+}
+
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
