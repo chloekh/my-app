@@ -1,6 +1,5 @@
 import kart from './resources/gløskart.png'
 import audio from './resources/musikk.wav'
-import useSound from 'use-sound';
 import './App.css';
 import * as React from 'react';
 import Slider from '@mui/material/Slider';
