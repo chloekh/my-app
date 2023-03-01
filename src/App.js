@@ -19,15 +19,7 @@ const ColorButton = styled(IconButton)(({theme}) => ({
 }))
 
 
-var audio1 = new Audio(alarm);
-var audio2 = new Audio(alarm);
-
-
-function preventHorizontalKeyboardNavigation(event: React.KeyboardEvent) {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    event.preventDefault();
-  }
-}
+var audio_BG = new Audio(alarm);
 
 /*   const [play] = useSound({alarm}) 
 function play() {
@@ -38,9 +30,10 @@ function play() {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {msg : "Trykk på en knapp for å begynne"};
-    this.state = {audio1 : false};
-    this.state = {audio2 : false};
+    this.setState({msg : "Trykk på en knapp for å begynne"});
+    this.state = {audio_BG : false};
+    this.state = {audio_endre : false}
+    this.state = {audio_endre_vol : 5}
     
     this.handleEl1 = this.handleEl1.bind(this);
     this.handleEl2 = this.handleEl2.bind(this);
@@ -50,19 +43,35 @@ class App extends React.Component {
 
   handleEl1() {
     this.setState({msg : "El-kantina"});
-    if(this.state.audio1) {
-     audio1.pause(); 
+    if(this.state.audio_BG) {
+     audio_BG.pause(); 
+     this.setState({audio_BG: false})
     }
-    /*if(this.state.audio2) {
-      audio2.pause();
-    }*/
-    audio1 = new Audio(alarm);
-    audio1.play();
-    this.setState({audio : true});
+    audio_BG = new Audio(alarm);
+    //audio_BG.volume() =
+    audio_BG.play();
+    this.setState({audio_BG : true});
   }
 
-  handleEl2() {this.setState({msg : "Ekkofritt rom"})}
-  handleSt1() {this.setState({msg : "Hangaren"})}
+  handleEl2() {
+    this.setState({msg : "Ekkofritt rom"});
+    if(this.state.audio_BG) {
+     audio_BG.pause(); 
+     this.setState({audio_BG: false})
+    }
+    audio_BG = new Audio(alarm);
+    audio_BG.play();
+    this.setState({audio : true});
+    
+  }
+  handleSt1() {
+    this.setState({msg : "Hangaren"});
+    if(this.state.audio_BG) {
+     audio_BG.pause(); 
+     this.setState({audio_BG: false})
+    }
+    
+  }
 
 
 
@@ -77,6 +86,8 @@ class App extends React.Component {
                  Always visible
               </Typography>
               <Slider
+              onChange={ (e, val) => audio_BG.volume = val}
+              onDragStop={ (e) => this.props.update(e, this.audio_endre_vol)}
               sx={{
                 '& input[type="range"]': {
                   WebkitAppearance: 'slider-vertical',
@@ -88,9 +99,9 @@ class App extends React.Component {
               defaultValue={30}
               min={20}
               max={80}
+              value={this.state.audio_BG_vol}
               aria-label="Volume"
               valueLabelDisplay="auto"
-              onKeyDown={preventHorizontalKeyboardNavigation}
               />
             </Grid>
             <Grid item xs={8}>
