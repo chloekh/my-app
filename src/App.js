@@ -42,7 +42,7 @@ class App extends React.Component {
 
 
   handleEl1() {
-    this.setState({msg : audio_BG.volume()});
+    this.setState({msg : audio_BG.volume});
     //this.setState({msg : "El-kantina"});
     if(this.state.audio_BG) {
      audio_BG.pause(); 
@@ -87,8 +87,8 @@ class App extends React.Component {
                  Always visible
               </Typography>
               <Slider
-              onChange={ (e, val) => audio_BG.volume(val) }
-              onDragStop={ (e) => this.props.update(e, audio_BG) }
+              onChange={ (e, val) => audio_BG.volume = val/100 }
+              onDragStop={ (e) => this.props.update(e, audio_BG.volume) }
               sx={{
                 '& input[type="range"]': {
                   WebkitAppearance: 'slider-vertical',
@@ -98,8 +98,8 @@ class App extends React.Component {
               orientation="vertical"
               aria-labelledby="discrete-slider-always"
               defaultValue={30}
-              min={20}
-              max={80}
+              min={0}
+              max={100}
               value={this.state.audio_BG_vol}
               aria-label="Volume"
               valueLabelDisplay="auto"
