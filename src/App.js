@@ -42,7 +42,8 @@ class App extends React.Component {
 
 
   handleEl1() {
-    this.setState({msg : "El-kantina"});
+    this.setState({msg : audio_BG.volume()});
+    //this.setState({msg : "El-kantina"});
     if(this.state.audio_BG) {
      audio_BG.pause(); 
      this.setState({audio_BG: false})
@@ -86,8 +87,8 @@ class App extends React.Component {
                  Always visible
               </Typography>
               <Slider
-              onChange={ (e, val) => audio_BG.volume = val}
-              onDragStop={ (e) => this.props.update(e, this.audio_endre_vol)}
+              onChange={ (e, val) => audio_BG.volume(val) }
+              onDragStop={ (e) => this.props.update(e, audio_BG) }
               sx={{
                 '& input[type="range"]': {
                   WebkitAppearance: 'slider-vertical',
