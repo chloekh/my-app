@@ -51,10 +51,26 @@ const d = new Date();
 const marks = [
   {value: 0,
   label: '0 dB',},
-  {value: 60,
-  label: '60 dB',},
-  {value: 100,
-  label: '100 dB',},
+  {value: 6,
+  label: '6 dB',},
+  {value: -6,
+  label: '-6 dB',},
+  {value: 12,
+  label: '12 dB',},
+  {value: -12,
+  label: '-12 dB',},
+  {value: 18,
+  label: '18 dB',},
+  {value: -18,
+  label: '-18 dB',},
+  {value: 24,
+  label: '24 dB',},
+  {value: -24,
+  label: '-24 dB',},
+  {value: 30,
+  label: '30 dB',},
+  {value: -30,
+  label: '-30 dB',},
 ]
 
 /*   const [play] = useSound({alarm}) 
@@ -261,11 +277,11 @@ class App extends React.Component {
         <Grid container spacing={4}>
             <Grid item xs={2}>
               <Typography id="discrete-slider-always" gutterBottom paddingTop={10}>
-                 Historievolum
+                 Historieforsterkning
               </Typography>
               <BetterSlider
               className='volume_slider'
-              onChange={ (e, val) => audio_endre.volume = val/100 }
+              onChange={ (e, val) => audio_endre.volume = 1/32*Math.pow(Math.sqrt(2), val/3) }
               sx={{
                 '& input[type="range"]': {
                   WebkitAppearance: 'slider-vertical',
@@ -274,14 +290,15 @@ class App extends React.Component {
               track={false}
               orientation="vertical"
               aria-labelledby="discrete-slider-always"
-              defaultValue={60}
-              min={0}
-              max={102}
+              defaultValue={0}
+              min={-30}
+              max={30}
               marks={marks}
               step={3}
               value={this.state.audio_BG_vol}
               aria-label="Volume"
               valueLabelDisplay="auto"
+              disabled={this.state.msg ? false : true}
               />
 
 
