@@ -2,17 +2,17 @@ import kart from './resources/gløskart.png'
 import alarm from './resources/musikk.wav'
 import ekkofritt from './resources/ekkofritt.WAV'
 import elkantina_historie from './resources/elkantina_historie.WAV'
-import elkantina_støy from './resources/elkantina_støy.WAV'
+import elkantina_støy from './resources/støy/elkantina_støy.WAV'
 import element_historie from './resources/element_historie.WAV'
-import element_støy from './resources/element_støy.WAV'
+import element_støy from './resources/støy/element_støy.WAV'
 import hangaren_historie from './resources/hangaren_historie.WAV'
-import hangaren_støy from './resources/hangaren_støy.WAV'
+import hangaren_støy from './resources/støy/hangaren_støy.WAV'
 import stripa_historie from './resources/stripa_historie.WAV'
-import stripa_støy from './resources/stripa_støy.WAV'
+import stripa_støy from './resources/støy/stripa_støy.WAV'
 import kjelhuset_historie from './resources/kjelhuset_historie.WAV'
-import kjelhuset_støy from './resources/kjelhuset_støy.WAV'
+import kjelhuset_støy from './resources/støy/kjelhuset_støy.WAV'
 import hovedbygget_historie from './resources/hovedbygget_historie.WAV'
-import hovedbygget_støy from './resources/hovedbygget_støy.WAV'
+import hovedbygget_støy from './resources/støy/hovedbygget_støy.WAV'
 import './App.css';
 import * as React from 'react';
 import Button from '@mui/material/Button'
@@ -49,26 +49,50 @@ var audio_endre = new Audio();
 //const fs = require('fs');
 const d = new Date();
 const marks = [
+  {value: 50,
+  label: '0 dB',},
+  {value: 60,
+  label: '6 dB',},
+  {value: 70,
+  label: '12 dB',},
+  {value: 80,
+  label: '18 dB',},
+  {value: 90,
+  label: '24 dB',},
+  {value: 100,
+  label: '30 dB',},
+  {value: 40,
+  label: '-6 dB',},
+  {value: 30,
+  label: '-12 dB',},
+  {value: 20,
+  label: '-18 dB',},
+  {value: 10,
+  label: '-24 dB',},
+  {value: 0,
+  label: '-30 dB',},
+]
+const marks_original = [
   {value: 0,
   label: '0 dB',},
   {value: 6,
   label: '6 dB',},
-  {value: -6,
-  label: '-6 dB',},
   {value: 12,
   label: '12 dB',},
-  {value: -12,
-  label: '-12 dB',},
   {value: 18,
   label: '18 dB',},
-  {value: -18,
-  label: '-18 dB',},
   {value: 24,
   label: '24 dB',},
-  {value: -24,
-  label: '-24 dB',},
   {value: 30,
   label: '30 dB',},
+  {value: -6,
+  label: '-6 dB',},
+  {value: -12,
+  label: '-12 dB',},
+  {value: -18,
+  label: '-18 dB',},
+  {value: -24,
+  label: '-24 dB',},
   {value: -30,
   label: '-30 dB',},
 ]
@@ -281,7 +305,7 @@ class App extends React.Component {
               </Typography>
               <BetterSlider
               className='volume_slider'
-              onChange={ (e, val) => audio_endre.volume = 1/32*Math.pow(Math.sqrt(2), val/3) }
+              onChange={ (e, val) => audio_endre.volume = val/100 } // audio_endre.volume = 1/32*Math.pow(Math.sqrt(2), val/3)
               sx={{
                 '& input[type="range"]': {
                   WebkitAppearance: 'slider-vertical',
@@ -290,11 +314,11 @@ class App extends React.Component {
               track={false}
               orientation="vertical"
               aria-labelledby="discrete-slider-always"
-              defaultValue={0}
-              min={-30}
-              max={30}
+              defaultValue={30}
+              min={0}
+              max={100}
               marks={marks}
-              step={3}
+              step={5}
               value={this.state.audio_BG_vol}
               aria-label="Volume"
               valueLabelDisplay="auto"
