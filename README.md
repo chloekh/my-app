@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# TTT4850 Gruppe 3, GløHzkart: et interaktivt støykart over campus. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I dette prosjektet har gruppen utviklet en applikasjon som består av et kart over campus, der brukeren kan trykke på de ulike rommene og justere volum på en stemme som er tatt opp på forhånd. Under kan man finne de ulike kravene som trengs for å kunne kjøre applikasjonen, samt en step-by-step guide på hvordan man starter den. 
 
-## Available Scripts
+## Tekniske krav
 
-In the project directory, you can run:
+Dette prosjektet er skrevet med rammeverket React, som krever at man har installert Node.js på forhånd. Linken under forklarer hvordan det kan gjøres: 
+https://nodejs.org/en
 
-### `npm start`
+Den enkleste måten å laste ned prosjektet på, er å klone prosjektet ved hjelp av git. Derfor trenger man også git lastet ned. Hvordan dette gjøres, finnner man her: 
+https://git-scm.com/downloads
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Åpne et kommandovindu og lokaliser til der du ønsker å lagre prosjektet med kommandoen ```cd 'path'```, der pathen er stien til der du vil den skal ligge i filutforskeren. 
+Et eksempel på en slik sti kan være: 
+```bash
+cd ../user/downloads/prosjektmappe
+```
+Etter å ha navigert til riktig mappe, skriver du kommandoen 
+```bash
+git clone https://github.com/chloekh/my-app.git
+```
+Du skal nå ha fått en ny mappe som heter 'my-app'. Skriv så kommandoen ```cd 'my-app'``` for å navigere inn i mappen, og du er inne i prosjektet!
 
-### `npm test`
+### Legg til lydfiler
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ettersom lydfilene har lengde på rundt 30 min, er det altfor store filer til å kunne legges til i git-prosjektet. Derfor ligger de i en zippet mappe separat fra koden, levert sammen med prosjektet. Unzip denne mappen kalt ```støy.zip```, og plasser den unzippede mappen i prosjektet under ```src/resources```. 
 
-### `npm run build`
+### Kjør applikasjonen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For å kjøre applikasjonen skriver du inn disse to kommandoene i rekkefølge: 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm install
+npm start
+```
+Programmet skal nå ha automatisk åpnet opp et nettleser vindu der programmet kjøres, ellers kan man skrive inn url'en ```http://localhost:3000/```
