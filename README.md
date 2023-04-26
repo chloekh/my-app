@@ -12,6 +12,7 @@ https://git-scm.com/downloads
 
 Dersom du ikke ønsker å laste ned git kan du også laste ned en statisk versjon av prosjektet her:
 https://drive.google.com/file/d/1RjfAyeqP5FI_CrX1SrEDCvV3xPSLJFRT/view?usp=share_link
+
 Merk at denne versjonen ikke vil endres og kan oppleve utdaterte tillegg. Zip ut mappen før du hopper ned til punkt **Kjør applikasjonen** for å kjøre kommandoene i mappen ```my-app```.
 
 ## Setup
@@ -31,6 +32,7 @@ Du skal nå ha fått en ny mappe som heter 'my-app'. Skriv så kommandoen ```cd 
 
 Ettersom lydfilene har lengde på rundt 30 min, er det altfor store filer til å kunne legges til i git-prosjektet. Derfor ligger de i en zippet mappe på Google Drive, her:
 https://drive.google.com/file/d/1M2I55QmKOpZF-wSz-Ombm0FY3OtX1F0j/view?usp=share_link
+
 Last ned og unzip denne mappen kalt ```støy.zip```, og plasser den unzippede mappen i prosjektet under ```src/resources``` slik at filene inni får stien ```src/resources/støy/støyfil.WAV```. 
 
 ### Kjør applikasjonen
