@@ -44,3 +44,5 @@ npm install
 npm start
 ```
 Programmet skal nå ha automatisk åpnet opp et nettleser vindu der programmet kjøres, ellers kan man skrive inn url'en ```http://localhost:3000/```
+
+```Prosjektet kan ikke videreutvikles uten tillatelse fra gruppemedlemmene på gruppe 16 i landsby TTT4850.```
